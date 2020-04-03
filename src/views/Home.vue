@@ -31,7 +31,7 @@
             <i
               class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue"
             >{{route.icon}}</i>
-            <div class="mdui-list-item-content">{{route.name}}</div>
+            <div class="mdui-list-item-content">{{route.title}}</div>
             <i
               class="mdui-collapse-item-arrow mdui-icon material-icons"
               v-if="route.children"
@@ -48,7 +48,12 @@
                 :class="['mdui-list-item','mdui-ripple', isActive && 'mdui-list-item-active']"
                 :href="href"
                 :click="navigate"
-              >{{subRoute.name}}</a>
+              >
+              <div class="mdui-list-item-content">
+                <div class="mdui-list-item-title">{{subRoute.title}}</div>
+                <div class="mdui-list-item-text">{{subRoute.subTitle}}</div>
+              </div>
+              </a>
             </router-link>
           </div>
         </div>
@@ -56,9 +61,7 @@
     </div>
     <div class="mdui-container">
       <div class="mdui-row">
-        <div class="mdui-center mdui-col-xs-12">
-          <router-view />
-        </div>
+        <router-view />
       </div>
     </div>
   </div>

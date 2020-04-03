@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
-import Empty from '../views/Empty.vue';
+import Html from '../views/code/Html.vue';
 
 Vue.use(VueRouter);
 
@@ -19,7 +19,7 @@ const routes = [
     component: Home,
     children: [
       {
-        path: '/about',
+        path: 'about',
         component: About,
       },
     ],
@@ -28,20 +28,23 @@ const routes = [
   {
     path: '/',
     name: 'code',
+    title: '代码压缩',
     component: Home,
     icon: 'near_me',
     children: [
       {
         path: '/code/html',
         name: 'html',
-        component: Empty,
+        title: 'HTML',
+        subTitle: '压缩 / 格式化',
+        component: Html,
       },
     ],
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes,
 });
