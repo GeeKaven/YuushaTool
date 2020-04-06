@@ -10,8 +10,8 @@
       <textarea ref="myeditor" v-model="code"/>
     </div>
     <div>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="compress">Button</button>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple">Button</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="format">格式化</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="compress">压缩</button>
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ import 'codemirror/lib/codemirror.css';
 
 const CodeMirror = require('codemirror/lib/codemirror');
 const Minimize = require('minimize');
+const BeautifyHtml = require('js-beautify').html;
 
 require('codemirror/mode/xml/xml');
 
@@ -45,6 +46,9 @@ export default {
   methods: {
     compress() {
       this.editor.setValue(this.minimize.parse(this.editor.getValue()));
+    },
+    format() {
+      this.editor.setValue(BeautifyHtml(this.editor.getValue(), { indent_inner_html: true }));
     },
   },
 };

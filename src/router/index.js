@@ -36,7 +36,7 @@ const routes = [
         path: '/code/html',
         name: 'html',
         title: 'HTML',
-        subTitle: '压缩 / 格式化',
+        subTitle: '格式化 / 压缩',
         component: Html,
       },
     ],

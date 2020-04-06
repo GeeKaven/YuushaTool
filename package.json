@@ -10,6 +10,7 @@
   "dependencies": {
     "codemirror": "^5.52.2",
     "core-js": "^3.6.4",
+    "js-beautify": "^1.11.0",
     "loadsh": "^0.0.4",
     "mdui": "^0.4.3",
     "minimize": "^2.2.0",
