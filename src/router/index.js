@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import Html from '../views/code/Html.vue';
+import Css from '../views/code/Css.vue';
 
 Vue.use(VueRouter);
 
@@ -36,8 +37,15 @@ const routes = [
         path: '/code/html',
         name: 'html',
         title: 'HTML',
-        subTitle: '格式化 / 压缩',
+        subTitle: '美化 / 压缩',
         component: Html,
+      },
+      {
+        path: '/code/css',
+        name: 'css',
+        title: 'CSS',
+        subTitle: '美化 / 优化 / 压缩',
+        component: Css,
       },
     ],
   },

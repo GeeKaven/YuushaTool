@@ -2,8 +2,8 @@
   <div class="mdui-center mdui-col-lg-10">
     <div class="mdui-typo">
       <h1>
-        HTML
-        <small>美化 / 压缩</small>
+        CSS
+        <small>美化 / 优化 / 压缩</small>
       </h1>
     </div>
     <div id="codemirror" class="mdui-shadow-3 mdui-m-b-4">
@@ -11,7 +11,9 @@
     </div>
     <div>
       <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="compress">压缩</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(0)">净化</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(1)">优化</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(2)">压缩</button>
     </div>
   </div>
 </template>
@@ -21,20 +23,21 @@ import 'codemirror/lib/codemirror.css';
 
 const CodeMirror = require('codemirror/lib/codemirror');
 const Minimize = require('minimize');
-const BeautifyHtml = require('js-beautify').html;
+const BeautifyCSS = require('js-beautify').css;
+const CleanCSS = require('clean-css');
 
-require('codemirror/mode/xml/xml');
+require('codemirror/mode/css/css');
 
 export default {
-  name: 'Html',
+  name: 'Css',
   data() {
     return {
-      code: '这是一段html代码',
+      code: '这是一段CSS代码',
     };
   },
   mounted() {
     this.minimize = new Minimize();
-    const mime = 'application/xml';
+    const mime = 'text/css';
     this.editor = CodeMirror.fromTextArea(this.$refs.myeditor, {
       mode: mime,
       lineNumbers: true,
@@ -45,10 +48,11 @@ export default {
   },
   methods: {
     beautify() {
-      this.editor.setValue(BeautifyHtml(this.editor.getValue(), { indent_inner_html: true }));
+      this.editor.setValue(BeautifyCSS(this.editor.getValue()));
     },
-    compress() {
-      this.editor.setValue(this.minimize.parse(this.editor.getValue()));
+    minify(level) {
+      const outPut = new CleanCSS({ level }).minify(this.editor.getValue());
+      this.editor.setValue(outPut.styles);
     },
   },
 };
