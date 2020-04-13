@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import About from '../views/About.vue';
 import Html from '../views/code/Html.vue';
 import Css from '../views/code/Css.vue';
+import Js from '../views/code/Js.vue';
 
 Vue.use(VueRouter);
 
@@ -46,6 +47,13 @@ const routes = [
         title: 'CSS',
         subTitle: '美化 / 优化 / 压缩',
         component: Css,
+      },
+      {
+        path: '/code/js',
+        name: 'javascript',
+        title: 'JavaScript',
+        subTitle: '美化 / 净化 / 混淆',
+        component: Js,
       },
     ],
   },

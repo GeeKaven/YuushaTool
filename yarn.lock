@@ -7926,6 +7926,15 @@ terser@^4.1.2, terser@^4.4.3:
     source-map "~0.6.1"
     source-map-support "~0.5.12"
 
+terser@^4.6.10:
+  version "4.6.10"
+  resolved "https://registry.npm.taobao.org/terser/download/terser-4.6.10.tgz#90f5bd069ff456ddbc9503b18e52f9c493d3b7c2"
+  integrity sha1-kPW9Bp/0Vt28lQOxjlL5xJPTt8I=
+  dependencies:
+    commander "^2.20.0"
+    source-map "~0.6.1"
+    source-map-support "~0.5.12"
+
 text-hex@1.0.x:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/text-hex/download/text-hex-1.0.0.tgz#69dc9c1b17446ee79a92bf5b884bb4b9127506f5"
