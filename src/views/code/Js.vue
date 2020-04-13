@@ -11,7 +11,7 @@
     </div>
     <div>
       <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="cleanUp">净化</button>
+      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="cleanUp()">净化</button>
       <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="mangle">混淆</button>
       <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="mangleAndCompress">
         混淆并压缩</button>
