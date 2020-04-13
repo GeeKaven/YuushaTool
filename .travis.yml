@@ -1,0 +1,39 @@
+language: node_js
+node_js: stable
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+before_script:
+ # - npm install -g gulp
+
+
+script:
+  - npm run lint
+  - npm run test:unit
+  - npm run build
+
+
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "GeeKaven"
+  - git config user.email "4497625+GeeKaven@users.noreply.github.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages #travis ci推送至gh-pages分支
+# E: Build LifeCycle
+
+branches:
+  only:
+    - master
+
+    env:
+ global:
+   - GH_REF: github.com/GeeKaven/YuushaTool.git
