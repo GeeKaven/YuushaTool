@@ -2,7 +2,7 @@
   <div class="mdui-center mdui-col-lg-10">
     <div class="mdui-typo">
       <h1>
-        CSS
+        JavaScript
         <small>美化 / 净化 / 混淆</small>
       </h1>
     </div>
@@ -20,9 +20,7 @@
 </template>
 
 <script>
-import 'codemirror/lib/codemirror.css';
-import CodeMirror from 'codemirror/lib/codemirror';
-import 'codemirror/mode/javascript/javascript';
+import CodeMirror from 'codemirror';
 import Terser from 'terser';
 
 const BeautifyJS = require('js-beautify');

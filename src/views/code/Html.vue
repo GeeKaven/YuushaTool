@@ -17,9 +17,7 @@
 </template>
 
 <script>
-import 'codemirror/lib/codemirror.css';
-import CodeMirror from 'codemirror/lib/codemirror';
-import 'codemirror/mode/xml/xml';
+import CodeMirror from 'codemirror';
 
 const Minimize = require('minimize');
 const BeautifyHtml = require('js-beautify').html;
