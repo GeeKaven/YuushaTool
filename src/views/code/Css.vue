@@ -20,13 +20,12 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
+import CodeMirror from 'codemirror/lib/codemirror';
+import 'codemirror/mode/css/css';
 
-const CodeMirror = require('codemirror/lib/codemirror');
 const Minimize = require('minimize');
 const BeautifyCSS = require('js-beautify').css;
 const CleanCSS = require('clean-css');
-
-require('codemirror/mode/css/css');
 
 export default {
   name: 'Css',

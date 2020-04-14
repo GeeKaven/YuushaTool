@@ -21,12 +21,11 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
+import CodeMirror from 'codemirror/lib/codemirror';
+import 'codemirror/mode/javascript/javascript';
 import Terser from 'terser';
 
-const CodeMirror = require('codemirror/lib/codemirror');
 const BeautifyJS = require('js-beautify');
-
-require('codemirror/mode/javascript/javascript');
 
 export default {
   name: 'Js',

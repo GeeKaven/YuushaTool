@@ -18,12 +18,11 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
+import CodeMirror from 'codemirror/lib/codemirror';
+import 'codemirror/mode/xml/xml';
 
-const CodeMirror = require('codemirror/lib/codemirror');
 const Minimize = require('minimize');
 const BeautifyHtml = require('js-beautify').html;
-
-require('codemirror/mode/xml/xml');
 
 export default {
   name: 'Html',
