@@ -8,8 +8,7 @@
         >
           <i class="mdui-icon material-icons">menu</i>
         </span>
-        <a href="/" class="mdui-typo-headline mdui-hidden-xs">Yuusha.dev</a>
-        <span class="mdui-typo-title">工具箱</span>
+        <a href="/" class="mdui-typo-headline mdui-hidden-xs">Yuusha Tool Box</a>
         <div class="mdui-toolbar-spacer"></div>
         <router-link
           to="/about"
@@ -82,5 +81,14 @@ export default {
   .row-btn {
     display: flex;
     flex-wrap: wrap;
+  }
+  .mdui-list-item-title {
+    font-size: 15px;
+  }
+  .mdui-list-item-text {
+    font-size: 13px;
+  }
+  .clean-float {
+    float: none;
   }
 </style>

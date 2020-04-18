@@ -1,5 +1,5 @@
 <template>
-  <div class="mdui-center mdui-col-lg-10">
+  <div class="mdui-center mdui-col-lg-10 clean-float">
     <div class="mdui-typo">
       <h1>
         JavaScript

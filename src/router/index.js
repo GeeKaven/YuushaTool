@@ -31,7 +31,7 @@ const routes = [
   {
     path: '/',
     name: 'code',
-    title: '代码压缩',
+    title: '代码辅助',
     component: Home,
     icon: 'code',
     children: [
@@ -60,8 +60,24 @@ const routes = [
   },
   {
     path: '/',
+    name: 'crypto',
+    title: '编码加密',
+    component: Home,
+    icon: 'image',
+    children: [
+      {
+        path: '/crypto/base64',
+        name: 'base64',
+        title: 'Base64',
+        subTitle: '编码 / 解码',
+        component: DataUrl,
+      },
+    ],
+  },
+  {
+    path: '/',
     name: 'picture',
-    title: '图片工具',
+    title: '图片处理',
     component: Home,
     icon: 'image',
     children: [
