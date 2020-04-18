@@ -37,9 +37,9 @@ module.exports = {
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/lib/codemirror.css',
       ],
       js: [
+        'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js',
         'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
         'https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
-        'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js',
         'https://cdn.jsdelivr.net/npm/terser@4.6.11/dist/bundle.min.js',
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/lib/codemirror.min.js',
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/mode/javascript/javascript.js',

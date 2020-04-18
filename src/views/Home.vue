@@ -21,7 +21,7 @@
       </div>
     </header>
     <div class="mdui-drawer mdui-shadow-4" id="main-drawer">
-      <div class="mdui-list" mdui-collapse="{accordion: true}">
+      <div class="mdui-list" mdui-collapse="{accordion: false}">
         <div
           class="mdui-collapse-item mdui-collapse-item-open"
           v-for="(route, index) in menus"
@@ -79,4 +79,8 @@ export default {
 </script>
 
 <style>
+  .row-btn {
+    display: flex;
+    flex-wrap: wrap;
+  }
 </style>

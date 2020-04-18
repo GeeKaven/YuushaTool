@@ -5,6 +5,7 @@ import About from '../views/About.vue';
 import Html from '../views/code/Html.vue';
 import Css from '../views/code/Css.vue';
 import Js from '../views/code/Js.vue';
+import DataUrl from '../views/picture/DataUrl.vue';
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,7 @@ const routes = [
     name: 'code',
     title: '代码压缩',
     component: Home,
-    icon: 'near_me',
+    icon: 'code',
     children: [
       {
         path: '/code/html',
@@ -54,6 +55,22 @@ const routes = [
         title: 'JavaScript',
         subTitle: '美化 / 净化 / 混淆',
         component: Js,
+      },
+    ],
+  },
+  {
+    path: '/',
+    name: 'picture',
+    title: '图片工具',
+    component: Home,
+    icon: 'image',
+    children: [
+      {
+        path: '/image/dataurl',
+        name: 'dataurl',
+        title: 'Data URL',
+        subTitle: '图片 ⇔ Base64',
+        component: DataUrl,
       },
     ],
   },
