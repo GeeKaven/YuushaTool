@@ -20,7 +20,6 @@ module.exports = {
       codemirror: 'CodeMirror',
       terser: 'Terser',
       mdui: 'mdui',
-      'js-base64': 'Base64',
     };
   },
   chainWebpack: (config) => {
@@ -41,7 +40,6 @@ module.exports = {
         'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js',
         'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
         'https://cdn.jsdelivr.net/npm/vue-router@3.1.6/dist/vue-router.min.js',
-        'https://cdn.jsdelivr.net/npm/js-base64@2.5.2/base64.min.js',
         'https://cdn.jsdelivr.net/npm/terser@4.6.11/dist/bundle.min.js',
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/lib/codemirror.min.js',
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/mode/javascript/javascript.js',
