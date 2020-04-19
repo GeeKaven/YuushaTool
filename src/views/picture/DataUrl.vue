@@ -90,7 +90,6 @@ export default {
       const reader = new FileReader();
       reader.readAsDataURL(this.imgFile);
       reader.onload = () => {
-        console.log(reader.result);
         this.imgBase64 = reader.result;
       };
     },

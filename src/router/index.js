@@ -6,6 +6,7 @@ import Html from '../views/code/Html.vue';
 import Css from '../views/code/Css.vue';
 import Js from '../views/code/Js.vue';
 import DataUrl from '../views/picture/DataUrl.vue';
+import Base64 from '../views/crypto/Base64.vue';
 
 Vue.use(VueRouter);
 
@@ -63,14 +64,14 @@ const routes = [
     name: 'crypto',
     title: '编码加密',
     component: Home,
-    icon: 'image',
+    icon: 'lock_outline',
     children: [
       {
         path: '/crypto/base64',
         name: 'base64',
         title: 'Base64',
         subTitle: '编码 / 解码',
-        component: DataUrl,
+        component: Base64,
       },
     ],
   },
