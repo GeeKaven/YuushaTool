@@ -11,8 +11,8 @@
       <textarea class="mdui-textfield-input" rows="10" v-model="inputValue"></textarea>
     </div>
     <div class="row-btn mdui-m-t-2">
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="encodeValue">编码</button>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="decodeValue">解码</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="encodeValue">编码</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="decodeValue">解码</button>
     </div>
     <div class="mdui-textfield">
       <label class="mdui-textfield-label">Base64 编码/解码结果</label>

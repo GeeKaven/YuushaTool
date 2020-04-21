@@ -9,9 +9,9 @@
     <div id="codemirror" class="mdui-shadow-3 mdui-m-b-4">
       <textarea ref="myeditor" v-model="code"/>
     </div>
-    <div>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
-      <button class="btn mdui-btn mdui-btn-raised mdui-ripple" v-on:click="compress">压缩</button>
+    <div class="row-btn">
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="compress">压缩</button>
     </div>
   </div>
 </template>
@@ -54,8 +54,5 @@ export default {
 <style>
   .CodeMirror {
     height: 450px;
-  }
-  .btn {
-    margin-right: 10px;
   }
 </style>
