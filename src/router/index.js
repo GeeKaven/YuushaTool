@@ -7,6 +7,7 @@ import Css from '../views/code/Css.vue';
 import Js from '../views/code/Js.vue';
 import DataUrl from '../views/picture/DataUrl.vue';
 import Base64 from '../views/crypto/Base64.vue';
+import EncodeUrl from '../views/crypto/EncodeUrl.vue';
 
 Vue.use(VueRouter);
 
@@ -61,6 +62,22 @@ const routes = [
   },
   {
     path: '/',
+    name: 'picture',
+    title: '图片处理',
+    component: Home,
+    icon: 'image',
+    children: [
+      {
+        path: '/image/dataurl',
+        name: 'dataurl',
+        title: 'Data URL',
+        subTitle: '图片 ⇔ Base64',
+        component: DataUrl,
+      },
+    ],
+  },
+  {
+    path: '/',
     name: 'crypto',
     title: '编码加密',
     component: Home,
@@ -73,21 +90,12 @@ const routes = [
         subTitle: '编码 / 解码',
         component: Base64,
       },
-    ],
-  },
-  {
-    path: '/',
-    name: 'picture',
-    title: '图片处理',
-    component: Home,
-    icon: 'image',
-    children: [
       {
-        path: '/image/dataurl',
-        name: 'dataurl',
-        title: 'Data URL',
-        subTitle: '图片 ⇔ Base64',
-        component: DataUrl,
+        path: '/crypto/encodeurl',
+        name: 'encodeurl',
+        title: 'URL转码',
+        subTitle: 'encodeURI()',
+        component: EncodeUrl,
       },
     ],
   },

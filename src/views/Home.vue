@@ -82,11 +82,14 @@ export default {
     display: flex;
     flex-wrap: wrap;
   }
+  .row-btn > * {
+    margin-right: 16px;
+  }
   .mdui-list-item-title {
-    font-size: 15px;
+    font-size: 14px;
   }
   .mdui-list-item-text {
-    font-size: 13px;
+    font-size: 12px;
   }
   .clean-float {
     float: none;
