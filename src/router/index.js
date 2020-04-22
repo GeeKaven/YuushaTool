@@ -8,6 +8,7 @@ import Js from '../views/code/Js.vue';
 import DataUrl from '../views/picture/DataUrl.vue';
 import Base64 from '../views/crypto/Base64.vue';
 import EncodeUrl from '../views/crypto/EncodeUrl.vue';
+import Encrypt from '../views/crypto/Encrypt.vue';
 
 Vue.use(VueRouter);
 
@@ -79,7 +80,7 @@ const routes = [
   {
     path: '/',
     name: 'crypto',
-    title: '编码加密',
+    title: '信息编解码',
     component: Home,
     icon: 'lock_outline',
     children: [
@@ -96,6 +97,13 @@ const routes = [
         title: 'URL转码',
         subTitle: 'encodeURI()',
         component: EncodeUrl,
+      },
+      {
+        path: '/crypto/encrypt',
+        name: 'encrypt',
+        title: '加密解密',
+        subTitle: 'AES / DES ...',
+        component: Encrypt,
       },
     ],
   },
