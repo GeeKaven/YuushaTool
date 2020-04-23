@@ -21,7 +21,6 @@
         <i class="mdui-icon mdui-icon-right material-icons">expand_less</i>解密
       </button>
       <select class="mdui-select" mdui-select v-model="cryptSelected">
-        <option value="" disabled>加密方式</option>
         <option
           v-for="option in cryptOptions"
           :key="option.value"
@@ -47,11 +46,13 @@ export default {
       plaintext: '',
       ciphertext: '',
       key: '',
-      cryptSelected: '',
+      cryptSelected: 'aes',
       cryptOptions: [
         { text: 'AES', value: 'aes' },
         { text: 'DES', value: 'des' },
         { text: 'RC4', value: 'rc4' },
+        { text: 'Rabbit', value: 'rabbit' },
+        { text: 'TripleDes', value: 'triple_des' },
       ],
     };
   },
@@ -70,6 +71,10 @@ export default {
         ciphertext = CryptoJS.DES.encrypt(plaintext, this.key).toString();
       } else if (cryptSelected === 'rc4') {
         ciphertext = CryptoJS.RC4.encrypt(plaintext, this.key).toString();
+      } else if (cryptSelected === 'rabbit') {
+        ciphertext = CryptoJS.Rabbit.encrypt(plaintext, this.key).toString();
+      } else if (cryptSelected === 'triple_des') {
+        ciphertext = CryptoJS.TripleDES.encrypt(plaintext, this.key).toString();
       }
       this.ciphertext = ciphertext;
 
@@ -78,16 +83,20 @@ export default {
     decrypt() {
       const { ciphertext } = this;
       const { cryptSelected } = this;
-      let plaintext = '';
+      let plaintextBytes = '';
 
       if (cryptSelected === 'aes') {
-        plaintext = CryptoJS.AES.decrypt(ciphertext, this.key).toString();
+        plaintextBytes = CryptoJS.AES.decrypt(ciphertext, this.key);
       } else if (cryptSelected === 'des') {
-        plaintext = CryptoJS.DES.decrypt(ciphertext, this.key).toString();
+        plaintextBytes = CryptoJS.DES.decrypt(ciphertext, this.key);
       } else if (cryptSelected === 'rc4') {
-        plaintext = CryptoJS.RC4.decrypt(ciphertext, this.key).toString();
+        plaintextBytes = CryptoJS.RC4.decrypt(ciphertext, this.key);
+      } else if (cryptSelected === 'rabbit') {
+        plaintextBytes = CryptoJS.Rabbit.decrypt(ciphertext, this.key);
+      } else if (cryptSelected === 'triple_des') {
+        plaintextBytes = CryptoJS.TripleDES.decrypt(ciphertext, this.key);
       }
-      this.plaintext = plaintext;
+      this.plaintext = plaintextBytes.toString(CryptoJS.enc.Utf8);
 
       this.$refs.plain.focus();
     },
