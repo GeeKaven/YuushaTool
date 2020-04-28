@@ -36,6 +36,7 @@ module.exports = {
       css: [
         'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css',
         'https://cdn.jsdelivr.net/npm/codemirror@5.52.2/lib/codemirror.css',
+        'https://fonts.googleapis.com/css?family=Material+Icons',
       ],
       js: [
         'https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js',
@@ -58,4 +59,7 @@ module.exports = {
       return args;
     });
   },
+  transpileDependencies: [
+    'vuetify',
+  ],
 };
