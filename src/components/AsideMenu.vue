@@ -27,8 +27,8 @@
           </v-list-item>
         </v-list-group>
 
-        <v-list-item v-else :key="item.index" link>
-          <v-list-item-action>
+        <v-list-item v-else :key="item.index" :to="item.url">
+          <v-list-item-action v-if="child.icon">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>

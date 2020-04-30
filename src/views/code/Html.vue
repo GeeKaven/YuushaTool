@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-lg pa-0>
+  <v-container>
     <v-col>
       <h1>
         HTML

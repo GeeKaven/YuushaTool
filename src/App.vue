@@ -29,6 +29,16 @@ export default {
     menu() {
       return [
         {
+          icon: '',
+          text: '首页',
+          url: '/',
+        },
+        {
+          icon: '',
+          text: '关于',
+          url: '/about',
+        },
+        {
           icon: 'code',
           text: '代码辅助',
           children: [
