@@ -1,6 +1,6 @@
 <template>
-  <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app dark>
-    <v-app-bar-nav-icon @click.stop/>
+  <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary">
+    <v-app-bar-nav-icon @click.stop="$emit('toggleDrawer')"/>
     <v-toolbar-title class="ml-0 pl-4">
       <span class="hidden-sm-and-down">{{title}}</span>
     </v-toolbar-title>

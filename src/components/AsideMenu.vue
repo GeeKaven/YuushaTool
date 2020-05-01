@@ -1,13 +1,8 @@
 <template>
   <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
-    <v-list>
+    <v-list dense>
       <template v-for="(item, index) in menu">
-        <v-list-group
-          v-if="item.children"
-          :key="index"
-          :prepend-icon="item.icon"
-          no-action
-        >
+        <v-list-group v-if="item.children" :key="index" :prepend-icon="item.icon" no-action>
           <template v-slot:activator>
             <v-list-item-content>
               <v-list-item-title>{{ item.text }}</v-list-item-title>
@@ -17,6 +12,7 @@
             v-for="(child, childIndex) in item.children"
             :key="childIndex"
             :to="child.url"
+            link
           >
             <v-list-item-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
@@ -27,8 +23,8 @@
           </v-list-item>
         </v-list-group>
 
-        <v-list-item v-else :key="item.index" :to="item.url">
-          <v-list-item-action v-if="child.icon">
+        <v-list-item v-else :key="item.index" :to="item.url" link>
+          <v-list-item-action v-if="item.icon">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
@@ -44,6 +40,10 @@
 export default {
   name: 'AsideMenu',
   props: {
+    drawer: {
+      type: Boolean,
+      default: null,
+    },
     menu: {
       type: Array,
       default: () => [],

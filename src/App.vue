@@ -1,7 +1,7 @@
 <template>
-  <v-app>
-    <nav-bar :title="title"/>
-    <aside-menu :menu="menu"/>
+  <v-app light>
+    <nav-bar :title="title" @toggleDrawer="drawer = !drawer"/>
+    <aside-menu :menu="menu" :drawer="drawer"/>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -23,18 +23,19 @@ export default {
   data: () => ({
     //
     title: 'Yuusha Tool',
+    drawer: true,
   }),
 
   computed: {
     menu() {
       return [
         {
-          icon: '',
+          icon: 'home',
           text: '首页',
           url: '/',
         },
         {
-          icon: '',
+          icon: 'info_outline',
           text: '关于',
           url: '/about',
         },
