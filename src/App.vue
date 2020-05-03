@@ -83,6 +83,10 @@ export default {
               text: '加密解密',
               url: '/crypto/encrypt',
             },
+            {
+              text: 'Unicode',
+              url: '/crypto/unicode',
+            },
           ],
         },
       ];

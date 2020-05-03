@@ -44,6 +44,11 @@ const routes = [
     name: 'encrypt',
     component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/Encrypt.vue'),
   },
+  {
+    path: '/crypto/unicode',
+    name: 'unicode',
+    component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/Unicode.vue'),
+  },
 ];
 
 const router = new VueRouter({
