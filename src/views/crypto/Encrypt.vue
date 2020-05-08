@@ -1,39 +1,43 @@
 <template>
-  <v-container>
-    <v-row dense>
-      <v-col cols="12">
-        <h1>
+  <div class="mdui-center mdui-col-lg-10 clean-float">
+    <div class="mdui-typo">
+      <h1>
         加密 / 解密
         <small>AES / DES ...</small>
       </h1>
-      </v-col>
-      <v-col cols="12">
-        <v-textarea ref="plain" v-model="plaintext" label="明文" rows="8" no-resize />
-      </v-col>
-      <v-col cols="12">
-        <v-text-field v-model="key" label="密钥"/>
-      </v-col>
-      <v-col cols="12">
-        <v-btn v-on:click="encrypt">
-          <v-icon right>expand_more</v-icon>加密
-        </v-btn>
-        <v-btn v-on:click="decrypt">
-          <v-icon right>expand_less</v-icon>解密
-        </v-btn>
-        <v-select
-          v-model="cryptSelected"
-          :items="cryptOptions"
-        ></v-select>
-      </v-col>
-      <v-col cols="12">
-        <v-textarea ref="cipher" :value="ciphertext" label="密文" rows="8" no-resize/>
-      </v-col>
-    </v-row>
-  </v-container>
+    </div>
+    <div class="mdui-textfield">
+      <label class="mdui-textfield-label">明文</label>
+      <textarea ref="plain" class="mdui-textfield-input" rows="10" v-model="plaintext"></textarea>
+    </div>
+    <div class="mdui-textfield">
+      <input class="mdui-textfield-input" type="text" placeholder="密钥" v-model="key" />
+    </div>
+    <div class="row-btn mdui-m-t-2">
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="encrypt">
+        <i class="mdui-icon mdui-icon-right material-icons">expand_more</i>加密
+      </button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="decrypt">
+        <i class="mdui-icon mdui-icon-right material-icons">expand_less</i>解密
+      </button>
+      <select class="mdui-select" mdui-select v-model="cryptSelected">
+        <option
+          v-for="option in cryptOptions"
+          :key="option.value"
+          :value="option.value"
+        >{{option.text}}</option>
+      </select>
+    </div>
+    <div class="mdui-textfield">
+      <label class="mdui-textfield-label">密文</label>
+      <textarea ref="cipher" class="mdui-textfield-input" rows="10" :value="ciphertext"></textarea>
+    </div>
+  </div>
 </template>
 
 <script>
 import CryptoJS from 'crypto-js';
+import mdui from 'mdui';
 
 export default {
   name: 'Encrypt',
@@ -51,6 +55,9 @@ export default {
         { text: 'TripleDes', value: 'triple_des' },
       ],
     };
+  },
+  mounted() {
+    mdui.mutation();
   },
   methods: {
     encrypt() {

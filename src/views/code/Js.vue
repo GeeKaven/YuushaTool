@@ -1,21 +1,22 @@
 <template>
-  <v-container>
-    <v-col>
-      <h1 class=".title">
+  <div class="mdui-center mdui-col-lg-10 clean-float">
+    <div class="mdui-typo">
+      <h1>
         JavaScript
-        <small class=".subtitle-2">美化 / 净化 / 混淆</small>
+        <small>美化 / 净化 / 混淆</small>
       </h1>
-      <div id="codemirror" class="elevation-3">
-        <textarea ref="myeditor" v-model="code" />
-      </div>
-      <div class="mt-8">
-        <v-btn v-on:click="beautify">美化</v-btn>
-        <v-btn v-on:click="cleanUp">净化</v-btn>
-        <v-btn v-on:click="mangle">混淆</v-btn>
-        <v-btn v-on:click="mangleAndCompress">混淆并压缩</v-btn>
-      </div>
-    </v-col>
-  </v-container>
+    </div>
+    <div id="codemirror" class="mdui-shadow-3 mdui-m-b-4">
+      <textarea ref="myeditor" v-model="code"/>
+    </div>
+    <div class="row-btn">
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="cleanUp">净化</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="mangle">混淆</button>
+      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="mangleAndCompress">
+        混淆并压缩</button>
+    </div>
+  </div>
 </template>
 
 <script>
