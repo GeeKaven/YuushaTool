@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <!-- <v-container>
     <v-row dense>
       <v-col cols="12">
         <h1>
@@ -28,7 +28,8 @@
         <v-textarea ref="output" :value="outputValue" label="编码后" rows="10" no-resize readonly />
       </v-col>
     </v-row>
-  </v-container>
+  </v-container> -->
+  <div></div>
 </template>
 
 <script>

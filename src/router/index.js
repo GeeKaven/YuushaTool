@@ -1,111 +1,53 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
-import Html from '../views/code/Html.vue';
-import Css from '../views/code/Css.vue';
-import Js from '../views/code/Js.vue';
-import DataUrl from '../views/picture/DataUrl.vue';
-import Base64 from '../views/crypto/Base64.vue';
-import EncodeUrl from '../views/crypto/EncodeUrl.vue';
-import Encrypt from '../views/crypto/Encrypt.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    hidden: true,
+    path: '/about',
+    name: 'about',
+    component: () => import(/* webpackChunkName: "index" */ '../views/About.vue'),
   },
   {
-    path: '/',
-    name: 'About',
-    component: Home,
-    children: [
-      {
-        path: 'about',
-        component: About,
-      },
-    ],
-    hidden: true,
+    path: '/code/html',
+    name: 'html',
+    component: () => import(/* webpackChunkName: "code" */ '../views/code/Html.vue'),
   },
   {
-    path: '/',
-    name: 'code',
-    title: '代码辅助',
-    component: Home,
-    icon: 'code',
-    children: [
-      {
-        path: '/code/html',
-        name: 'html',
-        title: 'HTML',
-        subTitle: '美化 / 压缩',
-        component: Html,
-      },
-      {
-        path: '/code/css',
-        name: 'css',
-        title: 'CSS',
-        subTitle: '美化 / 优化 / 压缩',
-        component: Css,
-      },
-      {
-        path: '/code/js',
-        name: 'javascript',
-        title: 'JavaScript',
-        subTitle: '美化 / 净化 / 混淆',
-        component: Js,
-      },
-    ],
+    path: '/code/css',
+    name: 'css',
+    component: () => import(/* webpackChunkName: "code" */ '../views/code/Css.vue'),
   },
   {
-    path: '/',
+    path: '/code/js',
+    name: 'javascript',
+    component: () => import(/* webpackChunkName: "icodemage" */ '../views/code/Js.vue'),
+  },
+  {
+    path: '/image/dataurl',
     name: 'picture',
-    title: '图片处理',
-    component: Home,
-    icon: 'image',
-    children: [
-      {
-        path: '/image/dataurl',
-        name: 'dataurl',
-        title: 'Data URL',
-        subTitle: '图片 ⇔ Base64',
-        component: DataUrl,
-      },
-    ],
+    component: () => import(/* webpackChunkName: "image" */ '../views/picture/DataUrl.vue'),
   },
   {
-    path: '/',
-    name: 'crypto',
-    title: '信息编解码',
-    component: Home,
-    icon: 'lock_outline',
-    children: [
-      {
-        path: '/crypto/base64',
-        name: 'base64',
-        title: 'Base64',
-        subTitle: '编码 / 解码',
-        component: Base64,
-      },
-      {
-        path: '/crypto/encodeurl',
-        name: 'encodeurl',
-        title: 'URL转码',
-        subTitle: 'encodeURI()',
-        component: EncodeUrl,
-      },
-      {
-        path: '/crypto/encrypt',
-        name: 'encrypt',
-        title: '加密解密',
-        subTitle: 'AES / DES ...',
-        component: Encrypt,
-      },
-    ],
+    path: '/crypto/base64',
+    name: 'base64',
+    component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/Base64.vue'),
+  },
+  {
+    path: '/crypto/encodeurl',
+    name: 'encodeurl',
+    component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/EncodeUrl.vue'),
+  },
+  {
+    path: '/crypto/encrypt',
+    name: 'encrypt',
+    component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/Encrypt.vue'),
+  },
+  {
+    path: '/crypto/unicode',
+    name: 'unicode',
+    component: () => import(/* webpackChunkName: "crypto" */ '../views/crypto/Unicode.vue'),
   },
 ];
 

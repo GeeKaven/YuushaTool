@@ -78,20 +78,5 @@ export default {
 </script>
 
 <style>
-  .row-btn {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .row-btn > * {
-    margin-right: 16px;
-  }
-  .mdui-list-item-title {
-    font-size: 14px;
-  }
-  .mdui-list-item-text {
-    font-size: 12px;
-  }
-  .clean-float {
-    float: none;
-  }
+
 </style>

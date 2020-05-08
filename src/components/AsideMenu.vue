@@ -1,39 +1,45 @@
 <template>
-  <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
-    <v-list dense>
+  <div class="mdui-drawer mdui-shadow-4" id="main-drawer">
+    <div class="mdui-list" mdui-collapse="{accordion: false}">
       <template v-for="(item, index) in menu">
-        <v-list-group v-if="item.children" :key="index" :prepend-icon="item.icon" no-action>
-          <template v-slot:activator>
-            <v-list-item-content>
-              <v-list-item-title>{{ item.text }}</v-list-item-title>
-            </v-list-item-content>
-          </template>
-          <v-list-item
-            v-for="(child, childIndex) in item.children"
-            :key="childIndex"
-            :to="child.url"
-            link
-          >
-            <v-list-item-action v-if="child.icon">
-              <v-icon>{{ child.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>{{ child.text }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
-
-        <v-list-item v-else :key="item.index" :to="item.url" link>
-          <v-list-item-action v-if="item.icon">
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <div v-if="!item.children" :key="index" class="mdui-collapse-item">
+          <router-link :to="item.url" v-slot="{href, navigate}">
+            <div class="mdui-list-item mdui-ripple" style="height: auto;">
+              <i
+                class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue"
+              >{{item.icon}}</i>
+              <a class="mdui-list-item-content" :href="href" :click="navigate">{{item.text}}</a>
+            </div>
+          </router-link>
+        </div>
+        <div v-else :key="item.index" class="mdui-collapse-item mdui-collapse-item-open">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+            <i
+              class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue"
+            >{{item.icon}}</i>
+            <div class="mdui-list-item-content">{{item.text}}</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list" style="height: auto;">
+            <router-link
+              v-for="(child, childIndex) in item.children"
+              :key="childIndex"
+              :to="child.url"
+              v-slot="{href, navigate, isActive}"
+            >
+              <a
+                :class="['mdui-list-item','mdui-ripple', isActive && 'mdui-list-item-active']"
+                :href="href"
+                :click="navigate"
+              >
+                <div class="mdui-list-item-content">{{child.text}}</div>
+              </a>
+            </router-link>
+          </div>
+        </div>
       </template>
-    </v-list>
-  </v-navigation-drawer>
+    </div>
+  </div>
 </template>
 
 <script>

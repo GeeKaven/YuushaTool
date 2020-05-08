@@ -1,14 +1,23 @@
 <template>
-  <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary">
-    <v-app-bar-nav-icon @click.stop="$emit('toggleDrawer')"/>
-    <v-toolbar-title class="ml-0 pl-4">
-      <span class="hidden-sm-and-down">{{title}}</span>
-    </v-toolbar-title>
-    <v-spacer />
-    <v-btn icon class="mr-0">
-      <v-icon>info_outline</v-icon>
-    </v-btn>
-  </v-app-bar>
+  <header class="mdui-appbar mdui-appbar-fixed">
+      <div class="mdui-toolbar mdui-color-theme">
+        <span
+          class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+          mdui-drawer="{target: '#main-drawer', swipe: true}"
+        >
+          <i class="mdui-icon material-icons">menu</i>
+        </span>
+        <a href="/" class="mdui-typo-headline mdui-hidden-xs">{{title}}</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <router-link
+          to="/about"
+          class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+          mdui-tooltip="{content: '关于'}"
+        >
+          <i class="mdui-icon material-icons">info_outline</i>
+        </router-link>
+      </div>
+    </header>
 </template>
 
 <script>
