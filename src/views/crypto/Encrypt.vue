@@ -1,5 +1,5 @@
 <template>
-  <div class="mdui-center mdui-col-lg-10 clean-float">
+  <!-- <div class="mdui-center mdui-col-lg-10 clean-float">
     <div class="mdui-typo">
       <h1>
         加密 / 解密
@@ -32,12 +32,45 @@
       <label class="mdui-textfield-label">密文</label>
       <textarea ref="cipher" class="mdui-textfield-input" rows="10" :value="ciphertext"></textarea>
     </div>
-  </div>
+  </div>-->
+  <section class="container is-fluid">
+    <div>
+      <h1>
+        加密 / 解密
+        <small>AES / DES ...</small>
+      </h1>
+    </div>
+    <textarea
+      ref="plain"
+      class="textarea has-fixed-size"
+      rows="10"
+      placeholder="明文"
+      v-model="plaintext"
+    />
+    <input class="input" type="text" placeholder="密钥" v-model="key" />
+    <div>
+      <b-button icon-left="arrow-down" @click="encrypt">加密</b-button>
+      <b-button icon-left="arrow-up" @click="decrypt">解密</b-button>
+      <b-select placeholder="请选择加密方式" v-model="cryptSelected">
+        <option
+          v-for="option in cryptOptions"
+          :value="option.value"
+          :key="option.value"
+        >{{ option.text }}</option>
+      </b-select>
+    </div>
+    <textarea
+      ref="cipher"
+      class="textarea has-fixed-size"
+      rows="10"
+      placeholder="密文"
+      v-model="ciphertext"
+    />
+  </section>
 </template>
 
 <script>
 import CryptoJS from 'crypto-js';
-import mdui from 'mdui';
 
 export default {
   name: 'Encrypt',
@@ -55,9 +88,6 @@ export default {
         { text: 'TripleDes', value: 'triple_des' },
       ],
     };
-  },
-  mounted() {
-    mdui.mutation();
   },
   methods: {
     encrypt() {

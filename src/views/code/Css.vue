@@ -1,21 +1,21 @@
 <template>
-  <div class="mdui-center mdui-col-lg-10 clean-float">
-    <div class="mdui-typo">
+  <section class="container is-fluid">
+    <div>
       <h1>
         CSS
         <small>美化 / 优化 / 压缩</small>
       </h1>
     </div>
-    <div id="codemirror" class="mdui-shadow-3 mdui-m-b-4">
+    <div id="codemirror">
       <textarea ref="myeditor" v-model="code"/>
     </div>
-    <div class="row-btn">
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="beautify">美化</button>
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(0)">净化</button>
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(1)">优化</button>
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="minify(2)">压缩</button>
+    <div>
+      <b-button type="is-info" @click="beautify">美化</b-button>
+      <b-button type="is-info" @click="minify(0)">压缩</b-button>
+      <b-button type="is-info" @click="minify(1)">优化</b-button>
+      <b-button type="is-info" @click="minify(2)">压缩</b-button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

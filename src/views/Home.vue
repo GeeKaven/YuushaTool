@@ -1,82 +1,116 @@
 <template>
-  <div id="toolbox">
-    <header class="mdui-appbar mdui-appbar-fixed">
-      <div class="mdui-toolbar mdui-color-theme">
-        <span
-          class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
-          mdui-drawer="{target: '#main-drawer', swipe: true}"
-        >
-          <i class="mdui-icon material-icons">menu</i>
-        </span>
-        <a href="/" class="mdui-typo-headline mdui-hidden-xs">Yuusha Tool Box</a>
-        <div class="mdui-toolbar-spacer"></div>
-        <router-link
-          to="/about"
-          class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
-          mdui-tooltip="{content: '关于'}"
-        >
-          <i class="mdui-icon material-icons">info_outline</i>
-        </router-link>
-      </div>
-    </header>
-    <div class="mdui-drawer mdui-shadow-4" id="main-drawer">
-      <div class="mdui-list" mdui-collapse="{accordion: false}">
-        <div
-          class="mdui-collapse-item mdui-collapse-item-open"
-          v-for="(route, index) in menus"
-          :key="index"
-        >
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-            <i
-              class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue"
-            >{{route.icon}}</i>
-            <div class="mdui-list-item-content">{{route.title}}</div>
-            <i
-              class="mdui-collapse-item-arrow mdui-icon material-icons"
-              v-if="route.children"
-            >keyboard_arrow_down</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list" style="height: auto;">
-            <router-link
-              v-for="(subRoute, subIndex) in route.children"
-              :key="subIndex"
-              :to="{name : subRoute.name}"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :class="['mdui-list-item','mdui-ripple', isActive && 'mdui-list-item-active']"
-                :href="href"
-                :click="navigate"
-              >
-              <div class="mdui-list-item-content">
-                <div class="mdui-list-item-title">{{subRoute.title}}</div>
-                <div class="mdui-list-item-text">{{subRoute.subTitle}}</div>
-              </div>
-              </a>
-            </router-link>
+  <section class="container is-fluid">
+    <div v-for="(box, index) in toolBox" class="tool" :key="index">
+      <div class="tool-title">{{box.text}}</div>
+      <div class="columns is-multiline">
+        <div v-for="(tool, subIndex) in box.children" class="column is-one-quarter" :key="subIndex">
+          <div class="tool-content">
+            <router-link :to="tool.url">{{tool.text}}</router-link>
+            <p>{{tool.desc}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="mdui-container">
-      <div class="mdui-row">
-        <router-view />
-      </div>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'Home',
   computed: {
-    menus() {
-      return this.$router.options.routes.filter((item) => !item.hidden);
+    toolBox() {
+      return [
+        {
+          icon: 'code',
+          text: '代码辅助',
+          children: [
+            {
+              text: 'HTML',
+              desc: '美化 / 压缩',
+              url: '/code/html',
+            },
+            {
+              text: 'CSS',
+              desc: '美化 / 优化 / 压缩',
+              url: '/code/css',
+            },
+            {
+              text: 'JavaScript',
+              desc: '美化 / 净化 / 混淆',
+              url: '/code/js',
+            },
+          ],
+        },
+        {
+          icon: 'image',
+          text: '图片处理',
+          children: [
+            {
+              text: 'Data URL',
+              desc: '图片 ⇔ Base64',
+              url: '/image/dataurl',
+            },
+          ],
+        },
+        {
+          icon: 'lock_outline',
+          text: '信息编解码',
+          children: [
+            {
+              text: 'Base64',
+              desc: '编码 / 解码',
+              url: '/crypto/base64',
+            },
+            {
+              text: 'URL转码',
+              desc: 'encodeURI()',
+              url: '/crypto/encodeurl',
+            },
+            {
+              text: '加密解密',
+              desc: 'AES / DES ...',
+              url: '/crypto/encrypt',
+            },
+            {
+              text: 'Unicode',
+              desc: 'HTML实体编解码',
+              url: '/crypto/unicode',
+            },
+          ],
+        },
+      ];
     },
   },
 };
 </script>
 
 <style>
-
+.tool {
+  position: relative;
+  background-color: blueviolet;
+  margin: 1.5rem 0;
+  padding: 1.45rem 1.5rem;
+  border-radius: 0.25rem;
+}
+.tool-content {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: blanchedalmond;
+  border-radius: 0.25rem;
+}
+.tool-content a {
+  font-size: 1.25rem;
+}
+.tool-content p {
+  font-size: 0.75rem;
+}
+.tool-title {
+  position: absolute;
+  background-color: aqua;
+  left: 1.875rem;
+  top: -1rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-weight: bold;
+}
 </style>

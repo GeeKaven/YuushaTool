@@ -1,39 +1,32 @@
 <template>
-  <div class="mdui-center mdui-col-lg-10 clean-float">
-    <div class="mdui-typo">
+  <section class="container is-fluid">
+    <div>
       <h1>
         URL转码
         <small>encodeURI() / encodeURIComponent()</small>
       </h1>
     </div>
-    <div class="mdui-textfield mdui-textfield-floating-label">
-      <label class="mdui-textfield-label">转码前</label>
-      <textarea ref="input" class="mdui-textfield-input" rows="10" v-model="inputValue"></textarea>
+    <textarea
+      ref="input"
+      class="textarea has-fixed-size"
+      rows="10"
+      placeholder="转码前"
+      v-model="inputValue"
+    />
+    <div>
+      <b-button icon-left="arrow-down" @click="encodeValue">编码</b-button>
+      <b-button icon-left="arrow-up" @click="decodeValue">解码</b-button>
+      <b-radio v-model="picked" name="method" native-value="normal">encodeURI</b-radio>
+      <b-radio v-model="picked" name="method" native-value="component">encodeURIComponent</b-radio>
     </div>
-    <div class="row-btn mdui-m-t-2">
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="encodeValue">
-        <i class="mdui-icon mdui-icon-right material-icons">expand_more</i>编码
-      </button>
-      <button class="mdui-btn mdui-btn-raised mdui-ripple" v-on:click="decodeValue">
-        <i class="mdui-icon mdui-icon-right material-icons">expand_less</i>解码
-      </button>
-      <label class="mdui-radio">
-        <input type="radio" name="encode" value="normal" v-model="picked"/>
-        <i class="mdui-radio-icon"></i>
-        encodeURI
-      </label>
-      <label class="mdui-radio">
-        <input type="radio" name="encode" value="component" v-model="picked"/>
-        <i class="mdui-radio-icon"></i>
-        encodeURIComponent
-      </label>
-    </div>
-    <div class="mdui-textfield">
-      <label class="mdui-textfield-label">转码后</label>
-      <textarea ref="output" class="mdui-textfield-input"
-                rows="10" :value="outputValue" readonly></textarea>
-    </div>
-  </div>
+    <textarea
+      ref="output"
+      class="textarea has-fixed-size"
+      rows="10"
+      placeholder="转码后"
+      v-model="outputValue"
+    />
+  </section>
 </template>
 
 <script>
