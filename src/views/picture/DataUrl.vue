@@ -19,7 +19,8 @@
         </b-field>
         <img v-show="imgSelected" :src="imgUrl" style="max-height:200px" />
         <div>
-          <b-button icon-left="arrow-down" @click="imgToBase64" :disabled="!imgSelected">转换</b-button>
+          <b-button icon-left="arrow-down" @click="imgToBase64"
+            :disabled="!imgSelected">转换</b-button>
         </div>
         <textarea
           class="textarea has-fixed-size"
@@ -37,7 +38,8 @@
           v-model="d2iBase64Url"
         />
         <div>
-          <b-button icon-left="arrow-down" @click="base64ToImg" :disabled="!imgSelected">转换</b-button>
+          <b-button icon-left="arrow-down" @click="base64ToImg"
+            :disabled="!imgSelected">转换</b-button>
         </div>
         <img v-show="d2iImgSelected" :src="d2iImgUrl" style="max-height:400px" />
       </b-tab-item>
