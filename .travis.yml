@@ -34,4 +34,4 @@ branches:
     
 env:
  global:
-   - GH_REF: github.com/GeeKaven/YuushaTool.git
+   - GH_REF: github.com/GeeKaven/YuTool.git
